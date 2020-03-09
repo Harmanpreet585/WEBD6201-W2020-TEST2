@@ -13,9 +13,6 @@ class Contact
     }
 }
 
-
-
-
 "use strict";
 //IIFE - Immediately Invoked Function Expression
 // mean? -> anonymous self-executing function
@@ -104,23 +101,26 @@ let app;
     {
         document.title = "WEBD6201 - Task List";
 
-        // Task 1 a
+        // click event function for new task button.
         $("#newTaskButton").on("click", function(){
-            
+            var task = $('<li class="list-group-item" id="task"><span class="float-right"><button class="btn btn-outline-primary btn-sm editButton"><i class="fas fa-edit"></i><button class="btn btn-outline-danger btn-sm deleteButton"><i class="fas fa-trash-alt"></i></button></span></li>').appendTo('#taskList');
+            task.text($("#taskTextInput").val()); //this is the value of the input
+            task.attr('id', 'task'); //use attr instead of setAttribute    
+            task.appendTo('ul.list');
         });
 
-        // Task 1 b
+        // click event function for edit button.
         $("ul").on("click", ".editButton", function(){
            
         });
 
-        // Task 1 c
+        //  click event function for delete button.
         $("ul").on("click", ".deleteButton", function(){
 
-            if(confirm("Are you Sure?"))
- {
-     document.getElementById("task").remove();
- }           
+            if(confirm("Are you Sure?")) // confirm message box
+        {
+        document.getElementById("task").remove(); // for task deletion
+        }           
            
         });
     }
