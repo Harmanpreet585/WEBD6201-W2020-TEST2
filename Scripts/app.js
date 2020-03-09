@@ -104,13 +104,15 @@ let app;
         // click event function for new task button.
         $("#newTaskButton").on("click", function(){
             var task = $('<li class="list-group-item" id="task"><span class="float-right"><button class="btn btn-outline-primary btn-sm editButton"><i class="fas fa-edit"></i><button class="btn btn-outline-danger btn-sm deleteButton"><i class="fas fa-trash-alt"></i></button></span></li>').appendTo('#taskList');
-            task.text($("#taskTextInput").val()); //this is the value of the input
-            task.attr('id', 'task'); //use attr instead of setAttribute    
+            task.text($("#taskTextInput").val());
+            task.attr('id', 'task');  
             task.appendTo('ul.list');
         });
 
         // click event function for edit button.
         $("ul").on("click", ".editButton", function(){
+
+            e.preventDefault();
            
         });
 
